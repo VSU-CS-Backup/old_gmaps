@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   def office_location 
       Location.find(session[:office_id])
     rescue ActiveRecord::RecordNotFound
-      office = Location.create(:name => "office", :address => "1500 N Patterson St. Valdosta GA 31698")
+      office = Location.new(:name => "office", :address => "1500 N Patterson St. Valdosta GA 31698")
       session[:office_id] = office.id
       office
     end
